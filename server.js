@@ -1,10 +1,31 @@
-const express  = require('express');
+const express = require('express');
+const cors = require('cors');
 const app = express();
+const bodyParser = require('body-parser');
 
-app.get('/',(req,res)=>{
-    res.send("hello world")
-})
+// Enable CORS
+app.use(cors());
 
-app.listen(3000,()=>{
-    console.log("server running at port 3000");
-})
+// Parse JSON bodies
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send("Hello World");
+});
+
+app.post('/submit', (req, res) => {
+//   const inputValue = req.body.myInput;
+const location={}
+   location.latitude = req.body.latitude;
+   location.longitude = req.body.longitude;
+
+//   console.log('Form submitted with value:', inputValue);
+  console.log('Location:',location.latitude);
+  console.log('Location:',location.longitude);
+
+  res.send('Form submitted successfully');
+});
+
+app.listen(4000, () => {
+  console.log("Server running at port 3000");
+});

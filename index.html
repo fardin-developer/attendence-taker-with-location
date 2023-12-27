@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    #map {
+      width: 80vw;
+      height: 60vh;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #submitButton {
+      margin-top: 20px;
+      padding: 10px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+  <title>User Location Example</title>
+</head>
+<body>
+
+<div id="map"></div>
+<button id="submitButton" onclick="submitLocation()">Submit Location</button>
+
+<script>
+  function submitLocation() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+
+          // Display the coordinates on the map (or handle as needed)
+          const mapElement = document.getElementById("map");
+          mapElement.innerHTML = `Latitude: ${latitude}, Longitude: ${longitude}`;
+
+          // Submit the location data to the backend
+          fetch('http://localhost:3000/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              latitude: latitude,
+              longitude: longitude,
+            }),
+          })
+          .then(response => response.json())
+          .then(data => console.log('Location data submitted successfully:', data))
+          .catch(error => console.error('Error submitting location data:', error));
+        },
+        (error) => {
+          console.error("Error getting user location:", error.message);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser");
+    }
+  }
+</script>
+
+</body>
+</html>
