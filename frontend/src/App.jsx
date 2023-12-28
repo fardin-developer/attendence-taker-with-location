@@ -4,6 +4,7 @@ import './App.css'
 function App() {
 
  const [location, setLocation] = useState({ latitude: null, longitude: null });
+ const [name, setName] = useState('')
 
   const submitLocation = () => {
     if ("geolocation" in navigator) {
@@ -22,6 +23,7 @@ function App() {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+              name,
               latitude,
               longitude,
             }),
@@ -41,8 +43,17 @@ function App() {
 
   return (
     <div>
+      <div className="from">
+        <form action="">
+          <label htmlFor="">name</label>
+          <input type="text" name="" id="" value={name} onChange={(e)=>{setName(e.target.value)}} />
+          {/* <br />
+          <label htmlFor="">password</label>
+          <input type="password" name="" id="" /> */}
+
+        </form>
+      </div>
       <div id="map">
-        {/* Display the coordinates on the map (or handle as needed) */}
         Latitude: {location.latitude}, Longitude: {location.longitude}
       </div>
       <button id="submitButton" onClick={submitLocation}>Submit Location</button>

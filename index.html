@@ -52,7 +52,7 @@
           mapElement.innerHTML = `Latitude: ${latitude}, Longitude: ${longitude}`;
 
           // Submit the location data to the backend
-          fetch('http://localhost:3000/submit', {
+          fetch('http://localhost:2000/submit', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

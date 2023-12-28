@@ -18,10 +18,12 @@ app.post('/submit', (req, res) => {
 const location={}
    location.latitude = req.body.latitude;
    location.longitude = req.body.longitude;
+   location.name = req.body.name;
 
 //   console.log('Form submitted with value:', inputValue);
   console.log('Location:',location.latitude);
   console.log('Location:',location.longitude);
+  console.log('name:',location.name);
 
   res.send('Form submitted successfully');
 });
