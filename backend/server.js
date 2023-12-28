@@ -2,25 +2,33 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
+const connectDB = require('./conndecDB')
+const User = require('./model/userModel')
 
-// Enable CORS
+connectDB();
+
+const user = new User({
+  name:'john doe'
+})
+//  user.save().then(()=>{
+//   console.log("user saved");
+//  })
+
 app.use(cors());
 
-// Parse JSON bodies
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send("Hello World");
+
 });
 
 app.post('/submit', (req, res) => {
-//   const inputValue = req.body.myInput;
 const location={}
    location.latitude = req.body.latitude;
    location.longitude = req.body.longitude;
    location.name = req.body.name;
 
-//   console.log('Form submitted with value:', inputValue);
   console.log('Location:',location.latitude);
   console.log('Location:',location.longitude);
   console.log('name:',location.name);
