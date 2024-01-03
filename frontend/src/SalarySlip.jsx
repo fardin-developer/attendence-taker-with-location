@@ -8,9 +8,9 @@ const Months = [
 
 const SalarySlip = () => {
   const [salaryDetails, setSalaryDetails] = useState({})
-    const handlePrint = () => {
-      window.print();
-    };
+  const handlePrint = () => {
+    window.print();
+  };
   useEffect(() => {
     const storedSalaryDetails = localStorage.getItem('salaryDetails');
     if (storedSalaryDetails) {
@@ -26,7 +26,7 @@ const SalarySlip = () => {
 
   return (
     <>
-    <button onClick={handlePrint}>Download</button>
+      <button onClick={handlePrint}>Download</button>
       <div className="fullpage">
         <div className="main">
           <div className="header">
@@ -43,13 +43,13 @@ const SalarySlip = () => {
           <div className="employdetails">
             <div className="leftdetails">
               <h2>Employ Summary</h2>
-              <h3>Name: Farin Mustaque</h3>
+              <h3>Name: {salaryDetails.name}</h3>
               <h4>Employ ID:73428734y</h4>
             </div>
             <div className="rightdetails">
-              <h2>Base salary:30000</h2>
-              <h2 style={{ color: "green" }}>Net Salary: 26000</h2>
-              <h5>Bill Month:01-03-2023</h5>
+              <h2>Base salary:{salaryDetails.baseslary}</h2>
+              <h2 style={{ color: "green" }}>Net Salary: {salaryDetails.salary}</h2>
+              <h5>Bill Month:01-{monthNumber}-2024</h5>
             </div>
           </div>
           <hr />
@@ -66,8 +66,8 @@ const SalarySlip = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Attendance</td>
-                    <td>26</td>
+                    <td>Attendance + Sunday</td>
+                    <td>{salaryDetails.attendences} + {salaryDetails.sunday}</td>
                   </tr>
                   <tr>
                     <td>Absent</td>
@@ -75,19 +75,19 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Day Salary</td>
-                    <td>1000</td>
+                    <td>{salaryDetails.baseslary / 30}</td>
                   </tr>
                   <tr>
                     <td>Base Salary</td>
-                    <td>30,000</td>
+                    <td>{salaryDetails.baseslary}</td>
                   </tr>
                   <tr>
                     <td>Deducted Salary</td>
-                    <td>4000</td>
+                    <td>{salaryDetails.baseslary - salaryDetails.salary}</td>
                   </tr>
                   <tr>
                     <td>Net Salary</td>
-                    <td>26000</td>
+                    <td>{salaryDetails.salary}</td>
                   </tr>
                 </tbody>
               </table>
@@ -97,11 +97,11 @@ const SalarySlip = () => {
           <div>
           </div>
           <div className="note">
-          <p>Day salary = total salary/30</p>
-          <p>Net salary = base salary - deducted salary</p>
-          <p>Holidays attendences are free and you will get payment for that day</p>
+            <p>*Day salary = total salary/30</p>
+            <p>*Net salary = base salary - deducted salary</p>
+            <p>*Holidays attendences are free and you will get payment for that day</p>
           </div>
-          
+
         </div>
       </div>
 

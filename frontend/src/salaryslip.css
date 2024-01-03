@@ -122,4 +122,7 @@ button {
     h2{
         font-size: large;
     }
+    button{
+        display: none;
+    }
   }

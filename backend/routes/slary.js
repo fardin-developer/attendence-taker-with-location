@@ -43,8 +43,10 @@ router.post('/salary', async (req, res) => {
                 month:month,
                 year:year,
                 numberOfPresentAttendances,
+                sundaysCount,
                 baseslary,
                 finalSalary: finalSalary,
+                
             })
 
 

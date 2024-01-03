@@ -49,6 +49,7 @@ const Salary = () => {
                         month: smonth,
                         year: syear,
                         attendences: responseData.numberOfPresentAttendances,
+                        sunday: responseData.sundaysCount,
                         baseslary: responseData.baseslary,
                         salary: responseData.finalSalary
                     }));

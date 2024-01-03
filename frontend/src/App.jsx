@@ -5,7 +5,7 @@ import './App.css';
 function App() {
 
  const [location, setLocation] = useState({ latitude: null, longitude: null });
- const [name, setName] = useState('')
+ const [name, setName] = useState('');
 
   const submitLocation = () => {
     if ("geolocation" in navigator) {
@@ -43,14 +43,15 @@ function App() {
   };
 
   return (
-    <div>
-      <div className="from">
+    <div className='Home'>
+      <div>
+      <div className="form">
         <form action="">
           <label htmlFor="">name</label>
-          <input type="text" name="" id="" value={name} onChange={(e)=>{setName(e.target.value)}} />
-          {/* <br />
+          <input type="text" name="" id="" value={name} onChange={(e)=>{setName(e.target.value)}}  autocomplete="name"/>
+          <br />
           <label htmlFor="">password</label>
-          <input type="password" name="" id="" /> */}
+          <input type="text" name="" id="" />
 
         </form>
       </div>
@@ -58,6 +59,8 @@ function App() {
         Latitude: {location.latitude}, Longitude: {location.longitude}
       </div>
       <button id="submitButton" onClick={submitLocation}>Submit Location</button>
+      </div>
+      
     </div>
   );
 };
