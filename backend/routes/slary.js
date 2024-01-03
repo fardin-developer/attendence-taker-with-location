@@ -1,42 +1,56 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../model/userModel');
-router.get('/salary',(req,res)=>{
-    
-   
+const Attendance = require('../model/attendenceMode');
+router.get('/salary', (req, res) => {
+
+
 
 
     // const baseslary =3000;
     // let absent = 10;
     // let sundayOfMonth 
     // let daysalary = 3000/30;
-    // const finalSalary = baseslary -daysalary*absent
+    // const finalSalary = baseslary - daysalary*absent
     // res.send("salary reciept: "+ finalSalary)
 });
 
 router.post('/salary', async (req, res) => {
-    let { month, year } = req.body; 
+    let { month, year, name } = req.body;
     month = Number(month)
-    console.log(month);
 
     const sundaysCount = countSundaysInMonth(month, year);
-    
-    console.log(`Number of Sundays: ${sundaysCount}`);
-    
-    res.send(`Received month data. Number of Sundays: ${sundaysCount}`);
 
-    const { name } = req.query;
+    console.log(` Number of Sundays: ${sundaysCount} `);
 
-    const salaryFind = async (name)=>{
-        let user = await User.findOne({name:name});
+    // res.send(`Received month data. Number of Sundays: ${sundaysCount}`);
+
+    console.log("name " + name);
+
+    const salaryFind = async (name) => {
+        let user = await User.findOne({ name: name });
         if (user) {
             const baseslary = user.netSalary;
-            console.log(baseslary);
+            let userID = user._id;
+            const numberOfPresentAttendances = await getNumberOfPresentAttendances(userID);
+            console.log("Number of present attendances:", numberOfPresentAttendances);
+            console.log(userID);
+            let daysalary = baseslary / 30;
+            const finalSalary = numberOfPresentAttendances * daysalary + sundaysCount * daysalary
+            console.log("final " + finalSalary);
+            res.json({
+                name: name,
+                month:month,
+                year:year,
+                numberOfPresentAttendances,
+                baseslary,
+                finalSalary: finalSalary,
+            })
 
-        }else{
+
+        } else {
             console.log('not found');
         }
-        // return User.netSalary
     }
 
     salaryFind(name);
@@ -44,19 +58,30 @@ router.post('/salary', async (req, res) => {
 
 function countSundaysInMonth(month, year) {
 
-    const date = new Date(year, month , 1);
-    console.log("date: "+date);
+    const date = new Date(year, month, 1);
+    console.log("date: " + date);
     let count = 0;
-    
+
     while (date.getMonth() === month) {
         if (date.getDay() === 0) {
             count++;
         }
         date.setDate(date.getDate() + 1);
     }
-    
+
     return count;
 }
+
+const getNumberOfPresentAttendances = async (userID) => {
+    try {
+        const presentAttendances = await Attendance.find({ user: userID, status: "present" });
+
+        return presentAttendances.length;
+    } catch (error) {
+        console.error("Error fetching attendances:", error);
+        throw error;
+    }
+};
 
 
 module.exports = router

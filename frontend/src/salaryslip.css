@@ -1,0 +1,48 @@
+.fullpage{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    width: 90vw;
+    height: 80vh;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.left{
+    margin-left: 1.5rem;
+}
+.right{
+    margin-right: 1.5rem;
+}
+.employdetails{
+    display :flex;
+    justify-content: space-between;
+}
+.salary-details-container {
+    margin: 20px;
+}
+
+.salary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.salary-table th, .salary-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.salary-table th {
+    background-color: #f2f2f2;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './salary.css'; // Import the CSS file
+import './salary.css';
+import { useNavigate } from "react-router-dom";
 
 const Months = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
@@ -7,8 +8,14 @@ const Months = [
 ];
 
 const Salary = () => {
-    const [smonth, setMonth] = useState();
-    const [syear, setYear] = useState('2023');
+    const [sname, setName] = useState('');
+    const [smonth, setMonth] = useState('');
+    const [syear, setYear] = useState('2024');
+   
+    const navigate = useNavigate();
+
+
+
 
     const handleMonthChange = (event) => {
         setMonth(event.target.value);
@@ -20,8 +27,8 @@ const Salary = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (smonth && syear) {
-            const body = JSON.stringify({ month: smonth, year: syear });
+        if (smonth && syear && sname) {
+            const body = JSON.stringify({ month: smonth, year: syear, name: sname });
             console.log(`Selected Month: ${Months[smonth]}, Year: ${syear}`);
             try {
                 const response = await fetch('http://localhost:4000/salary', {
@@ -34,14 +41,26 @@ const Salary = () => {
                     cache: 'default'
                 });
                 if (response.ok) {
-                    console.log('data sent success fully');
-                }else{
+                    const responseData = await response.json();
+                 
+                    
+                    localStorage.setItem('salaryDetails', JSON.stringify({
+                        name: sname,
+                        month: smonth,
+                        year: syear,
+                        attendences: responseData.numberOfPresentAttendances,
+                        baseslary: responseData.baseslary,
+                        salary: responseData.finalSalary
+                    }));
+                    navigate("/salary-slip");
+
+                } else {
                     console.log('failed to sent data');
                 }
             } catch (error) {
-                console.log(error);
+                console.log("err " + error);
             }
-            
+
         } else {
             alert('Please select both month and year.');
         }
@@ -61,6 +80,8 @@ const Salary = () => {
             {/* Example for year selection */}
             <label htmlFor="year" className="salary-label">Year:</label>
             <input type="number" id="year" value={syear} onChange={handleYearChange} className="salary-input" />
+            <label htmlFor="Name" className="salary-label">Name</label>
+            <input type="text" id="name" value={sname} onChange={(e) => { setName(e.target.value) }} className="salary-input" />
 
             <button type="submit" className="submit-button">Submit</button>
         </form>
