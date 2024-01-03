@@ -8,7 +8,9 @@ const Months = [
 
 const SalarySlip = () => {
   const [salaryDetails, setSalaryDetails] = useState({})
-
+    const handlePrint = () => {
+      window.print();
+    };
   useEffect(() => {
     const storedSalaryDetails = localStorage.getItem('salaryDetails');
     if (storedSalaryDetails) {
@@ -24,6 +26,7 @@ const SalarySlip = () => {
 
   return (
     <>
+    <button onClick={handlePrint}>Download</button>
       <div className="fullpage">
         <div className="main">
           <div className="header">
