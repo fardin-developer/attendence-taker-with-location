@@ -17,7 +17,8 @@ router.get('/salary', (req, res) => {
 
 router.post('/salary', async (req, res) => {
     let { month, year, name } = req.body;
-    month = Number(month)
+    month = Number(month);
+    year = Number(year)
 
     const sundaysCount = countSundaysInMonth(month, year);
 
@@ -32,7 +33,7 @@ router.post('/salary', async (req, res) => {
         if (user) {
             const baseslary = user.netSalary;
             let userID = user._id;
-            const numberOfPresentAttendances = await getNumberOfPresentAttendances(userID);
+            const numberOfPresentAttendances = await getNumberOfPresentAttendances(userID, month, year);
             console.log("Number of present attendances:", numberOfPresentAttendances);
             console.log(userID);
             let daysalary = baseslary / 30;
@@ -40,13 +41,13 @@ router.post('/salary', async (req, res) => {
             console.log("final " + finalSalary);
             res.json({
                 name: name,
-                month:month,
-                year:year,
+                month: month,
+                year: year,
                 numberOfPresentAttendances,
                 sundaysCount,
                 baseslary,
                 finalSalary: finalSalary,
-                
+
             })
 
 
@@ -74,9 +75,14 @@ function countSundaysInMonth(month, year) {
     return count;
 }
 
-const getNumberOfPresentAttendances = async (userID) => {
+const getNumberOfPresentAttendances = async (userID, month, year) => {
     try {
-        const presentAttendances = await Attendance.find({ user: userID, status: "present" });
+        const presentAttendances = await Attendance.find({
+            user: userID, status: "present", date: {
+                $gte: new Date(year, month, 1), 
+                $lte: new Date(year, month+1, 0),     
+            },
+        });
 
         return presentAttendances.length;
     } catch (error) {

@@ -28,7 +28,18 @@ const Salary = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (smonth && syear && sname) {
+
+            const selectedDate = new Date(syear, smonth); 
+            const currentDate = new Date();
+    
+            if (selectedDate > currentDate) {
+                alert('Please select a previous or current month.');
+                return;
+            }
+
+
             const body = JSON.stringify({ month: smonth, year: syear, name: sname });
+
             console.log(`Selected Month: ${Months[smonth]}, Year: ${syear}`);
             try {
                 const response = await fetch('http://localhost:4000/salary', {
@@ -63,7 +74,7 @@ const Salary = () => {
             }
 
         } else {
-            alert('Please select both month and year.');
+            alert('Please fill all the fields');
         }
     }
 

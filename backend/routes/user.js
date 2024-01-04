@@ -22,6 +22,9 @@ router.post('/submit', (req, res) => {
       if (user) {
         // console.log('Found user:', user);
         const today = new Date().setHours(0, 0, 0, 0);
+        console.log("datechecked " + today + 24 * 60 * 60 * 1000);
+
+
         const existingAttendance = await Attendance.findOne({
           user: user._id,
           date: { $gte: today, $lt: today + 24 * 60 * 60 * 1000 },
@@ -33,17 +36,29 @@ router.post('/submit', (req, res) => {
             status: 'present'
           })
           newAttendence.save().then((saveAttendence) => {
-            console.log('attendence saved, present: ', saveAttendence);
+            res.status(200).json({
+              status: 'success',
+              message: `attendence saved successfully`,
+              data: saveAttendence
+            });
+
           }).catch(err => {
             console.log(err);
+            res.status(500).json({
+              status: 'error',
+              message: "failed to save attendence"
+            })
           })
-        }else{
+        } else {
           console.log('attendence exist');
-          res.json({message:"attendence exist already"})
+          res.status(409).json({
+            status: 'exist',
+            message: 'Attendance already exists',
+          });
         }
-      }else{
+      } else {
         console.log('user not found');
-        res.json({user:"user not found"})
+        res.json({ user: "user not found" })
       }
       return user;
     } catch (error) {

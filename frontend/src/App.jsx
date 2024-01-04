@@ -1,69 +1,30 @@
-import { useState } from 'react'
-import './App.css';
+import React from 'react'
+import Attendance from './Attendance.jsx'
+import Salary from './Salary.jsx';
+import SalarySlip from './SalarySlip.jsx';
+import AttendanceExist from './AttendanceExist.jsx';
+import Success from './Success.jsx';
+import Failure from './Failure.jsx';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
-function App() {
 
- const [location, setLocation] = useState({ latitude: null, longitude: null });
- const [name, setName] = useState('');
-
-  const submitLocation = () => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const latitude = position.coords.latitude;
-          const longitude = position.coords.longitude;
-
-          // Update state with location data
-          setLocation({ latitude, longitude });
-
-          // Submit the location data to the backend
-          fetch('http://localhost:4000/submit', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name,
-              latitude,
-              longitude,
-            }),
-          })
-          .then(response => response.json())
-          .then(data => console.log('Location data submitted successfully:', data))
-          .catch(error => console.error('Error submitting location data:', error));
-        },
-        (error) => {
-          console.error("Error getting user location:", error.message);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser");
-    }
-  };
-
-  return (
-    <div className='Home'>
-      <div>
-      <div className="form">
-        <form action="">
-          <label htmlFor="">name</label>
-          <input type="text" name="" id="" value={name} onChange={(e)=>{setName(e.target.value)}}  autocomplete="name"/>
-          <br />
-          <label htmlFor="">password</label>
-          <input type="text" name="" id="" />
-
-        </form>
-      </div>
-      <div id="map">
-        Latitude: {location.latitude}, Longitude: {location.longitude}
-      </div>
-      <button id="submitButton" onClick={submitLocation}>Submit Location</button>
-      </div>
-      
-    </div>
-  );
-};
-
+const App = () => {
+    return (
+        <>
+            <Router>
+                <Routes>
+                    <Route path='/' element={<Attendance />} />
+                    <Route path='/exist' element={<AttendanceExist />} />
+                    <Route path='/salary' element={<Salary />} />
+                    <Route path='/success' element={<Success/>}/>
+                    <Route path='/failure' element={<Failure/>}/>
+                    <Route path='/salary-slip' element={<SalarySlip />} />
+                </Routes>
+            </Router>
+        </>
+    )
+}
 
 export default App
+

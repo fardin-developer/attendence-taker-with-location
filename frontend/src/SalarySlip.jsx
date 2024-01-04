@@ -48,7 +48,7 @@ const SalarySlip = () => {
             </div>
             <div className="rightdetails">
               <h2>Base salary:{salaryDetails.baseslary}</h2>
-              <h2 style={{ color: "green" }}>Net Salary: {salaryDetails.salary}</h2>
+              <h2 style={{ color: "green" }}>Net Salary: {(salaryDetails.attendences>0)?salaryDetails.salary:0}</h2>
               <h5>Bill Month:01-{monthNumber}-2024</h5>
             </div>
           </div>
@@ -71,7 +71,7 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Absent</td>
-                    <td>4</td>
+                    <td>{30-(salaryDetails.attendences+salaryDetails.sunday)}</td>
                   </tr>
                   <tr>
                     <td>Day Salary</td>
@@ -87,7 +87,7 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Net Salary</td>
-                    <td>{salaryDetails.salary}</td>
+                    <td>{(salaryDetails.attendences>0)?salaryDetails.salary:0}</td>
                   </tr>
                 </tbody>
               </table>
