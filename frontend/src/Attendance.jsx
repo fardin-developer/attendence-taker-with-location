@@ -70,9 +70,9 @@ function Attendence() {
 
           </form>
         </div>
-        <div id="map">
+        {/* <div id="map">
           Latitude: {location.latitude}, Longitude: {location.longitude}
-        </div>
+        </div> */}
         <button id="submitButton" onClick={submitLocation}>Submit Attendence</button>
         <h1 style={{ color: "green",textAlign:"center" }}>{message}</h1>
 
