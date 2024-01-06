@@ -11,7 +11,7 @@ const Salary = () => {
     const [sname, setName] = useState('');
     const [smonth, setMonth] = useState('');
     const [syear, setYear] = useState('2024');
-   
+
     const navigate = useNavigate();
 
 
@@ -29,9 +29,9 @@ const Salary = () => {
         event.preventDefault();
         if (smonth && syear && sname) {
 
-            const selectedDate = new Date(syear, smonth); 
+            const selectedDate = new Date(syear, smonth);
             const currentDate = new Date();
-    
+
             if (selectedDate > currentDate) {
                 alert('Please select a previous or current month.');
                 return;
@@ -53,8 +53,8 @@ const Salary = () => {
                 });
                 if (response.ok) {
                     const responseData = await response.json();
-                 
-                    
+
+
                     localStorage.setItem('salaryDetails', JSON.stringify({
                         name: sname,
                         month: smonth,
@@ -90,11 +90,16 @@ const Salary = () => {
             </select>
 
             {/* Example for year selection */}
-            <label htmlFor="year" className="salary-label">Year:</label>
-            <input type="number" id="year" value={syear} onChange={handleYearChange} className="salary-input" />
-            <label htmlFor="Name" className="salary-label">Name</label>
-            <input type="text" id="name" value={sname} onChange={(e) => { setName(e.target.value) }} className="salary-input" />
+            <div className='labelnInpt'>
+                <label htmlFor="year" className="salary-label">Year</label>
+                <input type="number" id="year" value={syear} onChange={handleYearChange} className="salary-input" />
+            </div>
 
+            <div className='labelnInpt'>
+
+                <label htmlFor="Name" className="salary-label">Name</label>
+                <input type="text" id="name" value={sname} onChange={(e) => { setName(e.target.value) }} className="salary-input" />
+            </div>
             <button type="submit" className="submit-button">Submit</button>
         </form>
     );

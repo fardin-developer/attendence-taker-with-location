@@ -3,7 +3,7 @@
 /* Style for the form container */
 .salary-form {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 5rem auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -23,18 +23,24 @@
   
   /* Style for select dropdown */
   .salary-select {
-    width: 100%;
+    width: 95%;
     padding: 8px;
     margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
-  
+  .labelnInpt{
+    width: 100%;
+  }
+ 
   /* Style for year input */
   .salary-input {
-    width: 100%;
     padding: 8px;
     border-radius: 5px;
+    width: 90%;
     border: 1px solid #ccc;
+    margin: auto;
+  }#name{
+    width: 90%;
   }
   

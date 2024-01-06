@@ -22,7 +22,7 @@ router.post('/submit', (req, res) => {
       if (user) {
         // console.log('Found user:', user);
         const today = new Date().setHours(0, 0, 0, 0);
-        console.log("datechecked " + today + 24 * 60 * 60 * 1000);
+        // console.log("datechecked " + today + 24 * 60 * 60 * 1000);
 
 
         const existingAttendance = await Attendance.findOne({
@@ -32,6 +32,7 @@ router.post('/submit', (req, res) => {
         if (!existingAttendance) {
           const newAttendence = new Attendance({
             user: user._id,
+            name:user.name,
             date: new Date(),
             status: 'present'
           })
@@ -68,20 +69,6 @@ router.post('/submit', (req, res) => {
   }
   const name = location.name
   findUserByName(name)
-
-
-  // const user = new User({
-  //   name: location.name,
-  //   dateOfJoin: new Date('2002-03-24'),
-  //   netSalary:30000
-  // })
-
-
-  // user.save().then(() => {
-  //   console.log("user saved");
-  // })
-
-
 
   console.log('Location:', location.latitude);
   console.log('Location:', location.longitude);

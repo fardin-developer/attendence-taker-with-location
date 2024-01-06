@@ -22,16 +22,16 @@ router.post('/salary', async (req, res) => {
 
     const sundaysCount = countSundaysInMonth(month, year);
 
-    console.log(` Number of Sundays: ${sundaysCount} `);
+    // console.log(` Number of Sundays: ${sundaysCount} `);
 
     // res.send(`Received month data. Number of Sundays: ${sundaysCount}`);
 
-    console.log("name " + name);
+    // console.log("name " + name);
 
     const salaryFind = async (name) => {
         let user = await User.findOne({ name: name });
         if (user) {
-            const baseslary = user.netSalary;
+            const baseslary = user.baseSalary;
             let userID = user._id;
             const numberOfPresentAttendances = await getNumberOfPresentAttendances(userID, month, year);
             console.log("Number of present attendances:", numberOfPresentAttendances);

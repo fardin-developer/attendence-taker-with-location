@@ -6,6 +6,8 @@ const connectDB = require('./config/conndecDB')
 const User = require('./model/userModel');
 const userRoute = require('./routes/user');
 const salary = require('./routes/slary')
+const createUser = require('./routes/createUer');
+const netAttendence = require('./routes/netAttendeces')
 
 connectDB();
 
@@ -18,6 +20,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/', userRoute)
 app.use('/', salary)
+app.use('/', createUser)
+app.use('/', netAttendence)
 
 app.get('/new', (req, res) => {
   res.send("hello")

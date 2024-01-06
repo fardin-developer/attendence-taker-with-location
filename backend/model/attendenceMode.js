@@ -6,6 +6,10 @@ const AttendanceSchema = new mongoose.Schema({
     ref: 'User', 
     required: true,
   },
+  name:{
+     type:String,
+     required:true
+  },
   date: {
     type: Date,
     default: Date.now,
