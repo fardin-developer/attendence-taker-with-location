@@ -12,14 +12,14 @@ function Attendence() {
 
 
   const submitLocation = () => {
-    // if ("geolocation" in navigator) {
-    //   navigator.geolocation.getCurrentPosition(
-    //     (position) => {
-    //       const latitude = position.coords.latitude;
-    //       const longitude = position.coords.longitude;
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
 
-    //       // Update state with location data
-    //       setLocation({ latitude, longitude });
+          // Update state with location data
+          setLocation({ latitude, longitude });
 
           // Submit the location data to the backend
           fetch('https://backend-teacher-production.up.railway.app/submit', {
@@ -29,35 +29,34 @@ function Attendence() {
             },
             body: JSON.stringify({
               name,
-              // latitude,
-              // longitude,
+              latitude,
+              longitude,
             }),
           })
             .then(response => response.json())
             .then((data) => {
               setMessage(data.message)
-              console.log(data.status);
-              alert(data.status)
+              // console.log(data.status);
+              // alert(data.status)
               if (data.status=='exist') {
                 navigate('/exist')
+              }else if(data.status='success'){
               }else if(data.status=='success'){
                 navigate('/success')
               }else if(data.status =='noUser'){
                 navigate('/failure')
-
-
               }
             })
             .catch(error => console.error('Error submitting location data:', error));
-        }
+        },
         (error) => {
           console.error("Error getting user location:", error.message);
         }
-      //  );
-    // } else {
-    //   console.error("Geolocation is not supported by this browser");
-    // }
-  // };
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser");
+    }
+  };
 
   return (
     <div className='Home'>
@@ -75,9 +74,9 @@ function Attendence() {
 
           </form>
         </div>
-        {/* <div id="map">
+        <div id="map">
           Latitude: {location.latitude}, Longitude: {location.longitude}
-        </div> */}
+        </div>
         <button id="submitButton" onClick={submitLocation}>Submit Attendence</button>
         <h1 style={{ color: "green",textAlign:"center" }}>{message}</h1>
 
