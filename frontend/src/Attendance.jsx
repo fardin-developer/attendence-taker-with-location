@@ -36,11 +36,16 @@ function Attendence() {
             .then(response => response.json())
             .then((data) => {
               setMessage(data.message)
-              console.log(data);
+              console.log(data.status);
+              alert(data.status)
               if (data.status=='exist') {
                 navigate('/exist')
               }else if(data.status='success'){
                 navigate('/success')
+              }else if(data.status =='noUser'){
+                navigate('/failure')
+
+
               }
             })
             .catch(error => console.error('Error submitting location data:', error));
