@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Attendence() {
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [name, setName] = useState('');
-  const [message, setMessage] = useState('')
+  // const [message, setMessage] = useState('')
   const navigate = useNavigate();
 
 
@@ -35,15 +35,13 @@ function Attendence() {
           })
             .then(response => response.json())
             .then((data) => {
-              setMessage(data.message)
-              // console.log(data.status);
-              // alert(data.status)
+              // setMessage(data.message)
+              // console.log(data);
               if (data.status=='exist') {
                 navigate('/exist')
-              }else if(data.status='success'){
               }else if(data.status=='success'){
                 navigate('/success')
-              }else if(data.status =='noUser'){
+              }else if(data.status=='noUser'){
                 navigate('/failure')
               }
             })
@@ -78,7 +76,7 @@ function Attendence() {
           Latitude: {location.latitude}, Longitude: {location.longitude}
         </div>
         <button id="submitButton" onClick={submitLocation}>Submit Attendence</button>
-        <h1 style={{ color: "green",textAlign:"center" }}>{message}</h1>
+        {/* <h1 style={{ color: "green",textAlign:"center" }}>{message}</h1> */}
 
       </div>
 
