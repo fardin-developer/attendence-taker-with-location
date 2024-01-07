@@ -40,7 +40,7 @@ function Attendence() {
               alert(data.status)
               if (data.status=='exist') {
                 navigate('/exist')
-              }else if(data.status='success'){
+              }else if(data.status=='success'){
                 navigate('/success')
               }else if(data.status =='noUser'){
                 navigate('/failure')
