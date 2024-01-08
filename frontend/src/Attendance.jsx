@@ -12,6 +12,7 @@ function Attendence() {
 
 
   const submitLocation = () => {
+    document.getElementById('submitButton').innerHTML = "Submiting ....."
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {

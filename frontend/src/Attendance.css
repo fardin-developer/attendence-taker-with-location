@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: center;
 }
+#submitButton{
+    cursor: pointer;
+}
 
 .form {
     padding: 20px;
