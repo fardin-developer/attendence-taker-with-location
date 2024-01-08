@@ -1,7 +1,14 @@
 import React from 'react';
-import './Success.css'; // Import your CSS file for styling
+import './Success.css'; 
+import { useNavigate } from "react-router-dom";
+
 
 const Success = () => {
+  const navigate = useNavigate();
+
+  setTimeout(() => {
+    navigate('/')
+  }, 2000);
   return (
     <div className="success-container">
       <div className="success-box">
@@ -10,7 +17,6 @@ const Success = () => {
         </div>
         <h2>Success!</h2>
         <p>Your attendance has been successfully recorded.</p>
-        {/* You can add more information or buttons if needed */}
       </div>
     </div>
   );
