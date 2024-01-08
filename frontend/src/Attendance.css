@@ -7,12 +7,20 @@
 }
 #submitButton{
     cursor: pointer;
+    margin-top: 15px;
+
+}
+#submitButton:hover{
+    cursor: pointer;
+    background: #51de49;
+    border-radius: 5px;
+    border: 1px solid white;
 }
 
 .form {
     padding: 20px;
     background-color: #f4f4f4;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     margin: 0 auto;
@@ -65,4 +73,7 @@ input[type="password"] {
         border-radius: 5px;
         border: 1px solid #ccc;
     }
+}
+#map{
+    margin-top: 15px;
 }
