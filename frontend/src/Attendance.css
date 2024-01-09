@@ -41,13 +41,15 @@
     cursor: pointer;
     margin-top: 15px;
     border: 2px solid rgb(163, 158, 158);
+    background-color: #48d041;
+    border-radius: 5px;
 
 }
 
 #submitButton:hover {
     cursor: pointer;
-    background: #51de49;
-    border-radius: 5px;
+    background: #2fae28;
+    border-radius: 15px;
     border: 1px solid white;
 }
 
