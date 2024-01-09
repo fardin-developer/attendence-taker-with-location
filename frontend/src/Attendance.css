@@ -67,6 +67,7 @@ input[type="password"] {
 }
 
 @media only screen and (max-width: 600px) {
+  
     .Home {
         width: 100vw;
         height: 100vh;
@@ -97,6 +98,12 @@ input[type="password"] {
         margin-bottom: 15px;
         border-radius: 5px;
         border: 1px solid #ccc;
+    }
+    h1{
+        font-size: xx-large;
+        text-align: center;
+        background: white;
+        color: rgb(0, 0, 0);
     }
 }
 

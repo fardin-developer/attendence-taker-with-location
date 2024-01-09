@@ -60,6 +60,8 @@ function Attendence() {
   return (
     <div className='Home'>
       <div>
+      <h1 style={{marginTop:"-4rem"}}>জ্ঞানোদয় জাতীয় একাডেমি</h1>
+
         <div className="form">
           <form action="">
             <div className="input">
