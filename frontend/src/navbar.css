@@ -1,15 +1,18 @@
 .navbar {
   width: 100vw;
-  background-color: #333;
-  padding: 10px;
-  left: 0;
+  background-color: #716a6a;
+  padding: 20px 0px;
+  margin: 0;
+  top: 0;
   right: 0;
+  display: flex;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-left: 10px;
 }
 
 li {
@@ -30,7 +33,18 @@ a:hover {
 
 ul li a.active {
   color: #ffcc00; /* Set active text color */
-  /* border-bottom: 2px solid #ffcc00;  */
+  border-bottom: 2px solid #ffcc00; 
   list-style: none;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 600px) {
+  ul {
+ 
+    margin-left: 1.5rem;
+  }
+  li {
+    display: inline;
+    margin-right: 3rem;
+  }
 }

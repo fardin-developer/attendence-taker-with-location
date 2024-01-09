@@ -6,6 +6,7 @@ import AttendanceExist from './AttendanceExist.jsx';
 import Success from './Success.jsx';
 import Failure from './Failure.jsx';
 import NavBar from './Navbar.jsx';
+import './index.css'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
