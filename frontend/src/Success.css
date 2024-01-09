@@ -1,50 +1,66 @@
 .success-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0; /* Set your desired background color */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: #2ecc71;  */
+}
+
+.success-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #4caf50; /* Primary blue card background color */
+  color: #fff; /* Set text color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.tick-mark-container {
+  overflow: hidden;
+}
+
+.tick-mark {
+  font-size: 3em;
+  color: #fff; /* Set tick color */
+  transform: translateY(100%);
+  animation: slideIn 2s ease-out infinite;
+}
+
+.home-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #3498db; 
+  color: #fff; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #2980b9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .success-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #4caf50; /* Set your desired box background color */
-    color: #fff; /* Set text color */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1.5s ease-in-out; /* Increase the duration of fade-in animation */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .tick-mark-container {
-    overflow: hidden;
-  }
-  
-  .tick-mark {
-    font-size: 3em;
-    color: #fff; /* Set tick color */
+}
+
+@keyframes slideIn {
+  from {
     transform: translateY(100%);
-    animation: slideIn 2s ease-out infinite; /* Increase the duration of slide-in animation */
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    transform: translateY(0%);
   }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateY(100%);
-    }
-    to {
-      transform: translateY(0%);
-    }
-  }
-  
+}

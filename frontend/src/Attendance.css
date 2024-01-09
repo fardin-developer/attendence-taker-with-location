@@ -8,6 +8,7 @@
 #submitButton{
     cursor: pointer;
     margin-top: 15px;
+    border: 2px solid rgb(163, 158, 158);
 
 }
 #submitButton:hover{
