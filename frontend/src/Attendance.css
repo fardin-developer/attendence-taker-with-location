@@ -24,7 +24,7 @@
     height: 100%;
     right: 0;
 
-    background: url('bgSchool.jpg') center/cover;
+    background: url('/bgSchool.jpg') center/cover;
     /* -webkit-filter: blur(15px);
     -moz-filter: blur(15px);
     -o-filter: blur(15px);
