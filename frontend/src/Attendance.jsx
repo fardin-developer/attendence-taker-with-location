@@ -60,7 +60,10 @@ function Attendence() {
   return (
     <div className='Home'>
       <div>
-      <h1 style={{marginTop:"-4rem"}}>জ্ঞানোদয় জাতীয় একাডেমি</h1>
+        <div className="h1">
+        <h1>জ্ঞানোদয় জাতীয় একাডেমী</h1>
+
+        </div>
 
         <div className="form">
           <form action="">
@@ -78,7 +81,7 @@ function Attendence() {
         <div id="map">
           Latitude: {location.latitude}, Longitude: {location.longitude}
         </div>
-        <button id="submitButton" onClick={submitLocation}>Submit Attendence</button>
+        <button id="submitButton" onClick={submitLocation}>Submit Attendance</button>
         {/* <h1 style={{ color: "green",textAlign:"center" }}>{message}</h1> */}
 
       </div>
