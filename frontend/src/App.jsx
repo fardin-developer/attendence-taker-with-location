@@ -5,6 +5,8 @@ import SalarySlip from './SalarySlip.jsx';
 import AttendanceExist from './AttendanceExist.jsx';
 import Success from './Success.jsx';
 import Failure from './Failure.jsx';
+import NavBar from './Navbar.jsx';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -13,6 +15,7 @@ const App = () => {
     return (
         <>
             <Router>
+                <NavBar/>
                 <Routes>
                     <Route path='/' element={<Attendance />} />
                     <Route path='/exist' element={<AttendanceExist />} />

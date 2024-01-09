@@ -1,0 +1,33 @@
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #a4860c; /* Set hover color */
+}
+
+
+ul li a.active {
+  color: #ffcc00; /* Set active text color */
+  /* border-bottom: 2px solid #ffcc00;  */
+  list-style: none;
+  text-decoration: none;
+}
