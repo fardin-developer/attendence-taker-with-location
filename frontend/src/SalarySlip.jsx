@@ -71,7 +71,7 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Absent</td>
-                    <td>{30 - (salaryDetails.attendences + salaryDetails.sunday)}</td>
+                    <td>{30 - (salaryDetails.attendences + salaryDetails.sunday)} days</td>
                   </tr>
                   <tr>
                     <td>Late time in Hour</td>
@@ -91,15 +91,15 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Base Salary</td>
-                    <td>{salaryDetails.baseslary}</td>
+                    <td><span style={{fontWeight:"bold"}}> {salaryDetails.baseslary}</span></td>
                   </tr>
                   <tr>
-                    <td> Deducted Salary</td>
-                    <td>-<span>{((30 - (salaryDetails.attendences + salaryDetails.sunday))*salaryDetails.baseslary/30)+salaryDetails.lateTimeSalary}</span>  <span style={{color:"red"}}>( {(30 - (salaryDetails.attendences + salaryDetails.sunday))*salaryDetails.baseslary/30} ₹ + {salaryDetails.lateTimeSalary} ₹)</span></td>
+                    <td>Deducted Salary</td>
+                    <td>-<span style={{fontWeight:"bold"}}>{((30 - (salaryDetails.attendences + salaryDetails.sunday))*salaryDetails.baseslary/30)+salaryDetails.lateTimeSalary}</span>  <span style={{color:"red"}}>( {(30 - (salaryDetails.attendences + salaryDetails.sunday))*salaryDetails.baseslary/30} ₹ + {salaryDetails.lateTimeSalary} ₹)</span></td>
                   </tr>
                   <tr>
                     <td>Net Salary</td>
-                    <td>={(salaryDetails.attendences > 0) ? salaryDetails.salary : 0}</td>
+                    <td> <span style={{fontWeight:"bold"}}>={(salaryDetails.attendences > 0) ? salaryDetails.salary : 0}</span></td>
                   </tr>
                 </tbody>
               </table>
