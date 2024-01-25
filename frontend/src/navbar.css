@@ -1,11 +1,21 @@
 .navbar {
   width: 100vw;
   background-color: #716a6a;
-  padding: 30px 0px;
+  padding: 3px 0px;
   margin: 0;
   top: 0;
   right: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Baloo Bhai 2', sans-serif;
+  
+}
+.navbar h1{
+  color: white;
+  background-color: #716a6a;
+  font-size: x-large;
+
 }
 
 ul {
@@ -20,11 +30,11 @@ li {
   margin-right: 20px;
 }
 
-a {
+/* a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-}
+} */
 
 a:hover {
   color: #a4860c; /* Set hover color */
@@ -38,13 +48,22 @@ ul li a.active {
   text-decoration: none;
 }
 
-@media only screen and (min-width: 600px) {
-  ul {
+@media only screen and (max-width: 600px) {
+  .navbar{
+    padding: 0px 0px;
+  }
+  .navbar h1{
+    color: white;
+    background-color: #716a6a;
+    font-size: x-large;
+  
+  }
+  /* ul {
  
     margin-left: 1.5rem;
   }
   li {
     display: inline;
     margin-right: 3rem;
-  }
+  } */
 }

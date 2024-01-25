@@ -20,6 +20,7 @@ const NavBar = () => {
           <Link to="/salary" className={active === 'salary' ? 'active' : ''} onClick={() => handleSetActive('salary')}>Salary Check</Link>
         </li>
       </ul> */}
+      <h1 style={{fontStyle:"italic", textAlign:"center"}}>Attendance Page</h1>
     </nav>
   );
 };
