@@ -74,8 +74,8 @@ const SalarySlip = () => {
                     <td>{30 - (salaryDetails.attendences + salaryDetails.sunday)}</td>
                   </tr>
                   <tr>
-                    <td>Late time in minutes</td>
-                    <td>{salaryDetails.lateTimeCount} Minutes</td>
+                    <td>Late time in Hour</td>
+                    <td>{salaryDetails.lateTimeCount/60} Hour</td>
                   </tr>
                   <tr>
                     <td>Late time salary deduction</td>
