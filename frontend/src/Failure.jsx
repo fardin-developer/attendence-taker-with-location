@@ -12,7 +12,7 @@ const Failure = () => {
       <div className="failure-box">
         <div className="cross-mark">&#10008;</div>
         <h2>{message}</h2>
-        <p>{{data}}.</p>
+        <p>{data}.</p>
 
         {/* You can add more information or buttons if needed */}
       </div>

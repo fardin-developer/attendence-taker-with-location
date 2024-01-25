@@ -45,7 +45,7 @@ function Attendence() {
               }else if(data.status=='noUser'){
                 navigate('/failure')
               } else if(data.status =="fail"){
-                navigate('/failure',{ state: { message: data.message } })
+                navigate('/failure',{ state: { message: data.message,data:data.data } })
               }
             })
             .catch(error => console.error('Error submitting location data:', error));
