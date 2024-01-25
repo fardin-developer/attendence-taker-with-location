@@ -121,4 +121,8 @@ input[type="password"] {
 #map {
     margin-top: 15px;
     background-color: #ccc;
+    border-radius: 5px;
+    width: 85%;
+    margin: auto;
+    margin-top: 1.2rem;
 }

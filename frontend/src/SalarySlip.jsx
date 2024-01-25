@@ -66,12 +66,16 @@ const SalarySlip = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Attendance + Sunday</td>
+                    <td>Attendance + Holiday</td>
                     <td>{salaryDetails.attendences} + {salaryDetails.sunday}</td>
                   </tr>
                   <tr>
                     <td>Absent</td>
                     <td>{30-(salaryDetails.attendences+salaryDetails.sunday)}</td>
+                  </tr>
+                  <tr>
+                    <td>Late time in minutes</td>
+                    <td>{salaryDetails.lateTimeCount}</td>
                   </tr>
                   <tr>
                     <td>Day Salary</td>
