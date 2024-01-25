@@ -82,6 +82,10 @@ const SalarySlip = () => {
                     <td style={{color:"red"}}>{salaryDetails.lateTimeSalary} inr</td>
                   </tr>
                   <tr>
+                    <td>Absent salary deduction</td>
+                    <td style={{color:"red"}}>{(30 - (salaryDetails.attendences + salaryDetails.sunday))*salaryDetails.baseslary/30} inr</td>
+                  </tr>
+                  <tr>
                     <td>Day Salary</td>
                     <td>{salaryDetails.baseslary / 30}</td>
                   </tr>
@@ -91,7 +95,7 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Deducted Salary</td>
-                    <td>{salaryDetails.baseslary - salaryDetails.salary}</td>
+                    <td>{(30 - (salaryDetails.attendences + salaryDetails.sunday))*salaryDetails.baseslary/30} inr + {salaryDetails.lateTimeSalary} inr</td>
                   </tr>
                   <tr>
                     <td>Net Salary</td>
