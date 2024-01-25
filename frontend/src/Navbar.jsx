@@ -12,14 +12,14 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <ul>
+      {/* <ul>
         <li>
           <Link  className={active === 'home' ? 'active' : ''} to="/" onClick={() => handleSetActive('home')}>Home</Link>
         </li>
-        {/* <li >
+        <li >
           <Link to="/salary" className={active === 'salary' ? 'active' : ''} onClick={() => handleSetActive('salary')}>Salary Check</Link>
-        </li> */}
-      </ul>
+        </li>
+      </ul> */}
     </nav>
   );
 };
