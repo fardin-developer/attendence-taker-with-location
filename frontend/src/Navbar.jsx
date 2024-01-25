@@ -16,9 +16,9 @@ const NavBar = () => {
         <li>
           <Link  className={active === 'home' ? 'active' : ''} to="/" onClick={() => handleSetActive('home')}>Home</Link>
         </li>
-        <li >
+        {/* <li >
           <Link to="/salary" className={active === 'salary' ? 'active' : ''} onClick={() => handleSetActive('salary')}>Salary Check</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
