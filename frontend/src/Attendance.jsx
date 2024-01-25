@@ -44,7 +44,7 @@ function Attendence() {
                 navigate('/success')
               }else if(data.status=='noUser'){
                 navigate('/failure')
-              } else if(data.status =="failure"){
+              } else if(data.status =="fail"){
                 navigate('/failure',{ state: { message: data.message } })
               }
             })
