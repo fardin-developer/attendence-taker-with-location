@@ -91,7 +91,7 @@ const SalarySlip = () => {
                   </tr>
                   <tr>
                     <td>Base Salary</td>
-                    <td><span style={{fontWeight:"bold"}}> {salaryDetails.baseslary}</span></td>
+                    <td><span style={{ fontWeight: "bold" }}>&nbsp;{salaryDetails.baseslary}</span></td>
                   </tr>
                   <tr>
                     <td>Deducted Salary</td>
