@@ -37,7 +37,7 @@ function Attendence() {
             .then(response => response.json())
             .then((data) => {
               // setMessage(data.message)
-              // console.log(data);
+              console.log(data);
               if (data.status=='exist') {
                 navigate('/exist')
               }else if(data.status=='success'){
