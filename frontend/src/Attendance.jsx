@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Attendance.css';
 import { useNavigate } from 'react-router-dom';
+import { Cookies } from 'react-cookie';
 
 
 
@@ -9,6 +10,17 @@ function Attendence() {
   const [name, setName] = useState('');
   // const [message, setMessage] = useState('')
   const navigate = useNavigate();
+  const cookies = new Cookies();
+  let cdata = cookies.get('token');
+  useEffect(() => {
+    if (!cdata) {
+      alert("Login first by Head of Stuff")
+      navigate('/login')
+    }
+
+
+  }, [])
+
 
 
   const submitLocation = () => {
@@ -27,6 +39,7 @@ function Attendence() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': cdata.token
             },
             body: JSON.stringify({
               name,
@@ -37,15 +50,18 @@ function Attendence() {
             .then(response => response.json())
             .then((data) => {
               // setMessage(data.message)
-              console.log(data);
-              if (data.status=='exist') {
+              console.log(data.error);
+              if (data.status == 'exist') {
                 navigate('/exist')
-              }else if(data.status=='success'){
+              } else if (data.status == 'success') {
                 navigate('/success')
-              }else if(data.status=='noUser'){
-                navigate('/failure',{ state: { message: data.message,data:data.data } })
-              } else if(data.status =="fail"){
-                navigate('/failure',{ state: { message: data.message,data:data.data } })
+              } else if (data.status == 'noUser') {
+                navigate('/failure', { state: { message: data.message, data: data.data } })
+              } else if (data.status == "fail") {
+                navigate('/failure', { state: { message: data.message, data: data.data } })
+              } else if (data.status == "invalid token") {
+                alert("Login first by Head of School")
+                navigate('/login');
               }
             })
             .catch(error => console.error('Error submitting location data:', error));
@@ -63,7 +79,7 @@ function Attendence() {
     <div className='Home'>
       <div>
         <div className="h1">
-        <h1>জ্ঞানোদয় জাতীয় একাডেমী</h1>
+          <h1>জ্ঞানোদয় জাতীয় একাডেমী</h1>
 
         </div>
 
