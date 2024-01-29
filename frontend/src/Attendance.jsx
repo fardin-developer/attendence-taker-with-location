@@ -35,7 +35,7 @@ function Attendence() {
           setLocation({ latitude, longitude });
 
           // Submit the location data to the backend
-          fetch('https://backend-teacher-production.up.railway.app/submit', {
+          fetch('http://3.111.187.149/submit', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
