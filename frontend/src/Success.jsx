@@ -7,7 +7,7 @@ const Success = () => {
 
   setTimeout(() => {
     navigate('/')
-  }, 4000);
+  }, 7000);
 
   return (
     <div className="success-container">
