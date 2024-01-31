@@ -48,17 +48,22 @@
     cursor: pointer;
     margin-top: 15px;
     border: 2px solid rgb(172, 166, 166);
-    background-color: #27d827;
+    background-color: #dab708;
     /* Light green background */
     /* Black text */
     color: black;
     border-radius: 15px;
-    box-shadow: 4px 3px 2px 2px rgb(0, 0, 0);
+    box-shadow: 4px 3px 2px 2px rgb(47, 47, 47);
     margin-top: 30px;
     font-size: large;
+    font-weight: bold;
+    padding: 15px;
+    font-style: 'baloo-bhai';
+    color: rgb(0, 0, 0);
 
 
 }
+
 
 #submitButton:hover {
     cursor: pointer;
@@ -73,8 +78,10 @@
     background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
     margin: 0 auto;
+}
+.input{
+    margin-right: 20px;
 }
 
 label {
@@ -121,7 +128,9 @@ input[type="password"] {
         /* Place the pseudo-element behind the content */
     }
 
+
     .form {
+        width: 300px;
         padding: 20px;
         background-color: #f4f4f4;
         border-radius: 8px;
