@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = () => {
     console.log(`Username: ${username}, Password: ${password}`);
 
-    let apiUrl = "https://backend-teacher-production.up.railway.app/admin/login";
+    let apiUrl = "https://lms.fardindev.me/admin/login";
     const formData = {
       username: username,
       password: password,

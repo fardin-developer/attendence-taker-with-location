@@ -34,8 +34,8 @@ function Attendence() {
           // Update state with location data
           setLocation({ latitude, longitude });
 
-          // Submit the location data to the backend
-          fetch('https://backend-teacher-production.up.railway.app/submit', {
+          // Submit the location data to the 
+          fetch('https://lms.fardindev.me/submit', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
