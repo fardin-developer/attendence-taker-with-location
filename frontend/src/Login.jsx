@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = () => {
     console.log(`Username: ${username}, Password: ${password}`);
 
-    let apiUrl = "https://lms.fardindev.me/admin/login";
+    let apiUrl = "https://lms.fardin.space/admin/login";
     const formData = {
       username: username,
       password: password,

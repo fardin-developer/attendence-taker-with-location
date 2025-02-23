@@ -35,7 +35,7 @@ function Attendence() {
           setLocation({ latitude, longitude });
 
           // Submit the location data to the 
-          fetch('https://lms.fardindev.me/submit', {
+          fetch('https://lms.fardin.space/submit', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
