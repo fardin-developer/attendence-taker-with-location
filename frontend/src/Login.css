@@ -16,6 +16,7 @@
   justify-content: center;
   background-color: var(--background-light);
   padding: 1rem;
+  width: 100vw;
 }
 
 .login-card {

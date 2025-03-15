@@ -60,8 +60,8 @@ const Login = () => {
     <div className="login-page">
       <div className="login-card">
         <div className="login-header">
-          <h1 className="login-title">Admin Portal</h1>
-          <p className="login-subtitle">School Management System</p>
+          <h1 className="login-title">Attendance System</h1>
+          <p className="login-subtitle">For teacher and other stuff members</p>
         </div>
         
         <form onSubmit={handleLogin} className="login-form">
