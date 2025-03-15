@@ -1,11 +1,8 @@
 import React from 'react'
 import Attendance from './Attendance.jsx'
-import Salary from './Salary.jsx';
-import SalarySlip from './SalarySlip.jsx';
 import AttendanceExist from './AttendanceExist.jsx';
 import Success from './Success.jsx';
 import Failure from './Failure.jsx';
-import NavBar from './Navbar.jsx';
 import Login from './Login.jsx'
 import './index.css';
 
