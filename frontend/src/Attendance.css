@@ -1,23 +1,14 @@
+/* Modern styling for Attendance.css */
 .Home {
     position: relative;
     width: 100vw;
-    height: 92vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    font-family: 'Baloo Bhai 2', sans-serif;
-
-}
-
-.h1 {
-    margin-top: -8rem;
-    margin-bottom: 6rem;
-    background: white;
-    border-radius: 5px;
-    padding: 0px 28px;
-    font-family: sans-serif;
-    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
 }
 
 .Home::before {
@@ -27,146 +18,125 @@
     left: 0;
     width: 100%;
     height: 100%;
-    right: 0;
-
-    background: url('../public/bgSchool.jpg') center/contain;
-    /* -webkit-filter: blur(15px);
-    -moz-filter: blur(15px);
-    -o-filter: blur(15px);
-    -ms-filter: blur(15px); */
-    filter: blur(3.8px);
+    background: url('../public/bgSchool.jpg') center/cover;
+    filter: blur(5px) brightness(0.7);
     z-index: -1;
-    /* Place the pseudo-element behind the content */
 }
 
-.Home>div {
-    z-index: 1;
-    /* Ensure the content is above the pseudo-element */
+.attendance-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-#submitButton {
-    cursor: pointer;
-    margin-top: 15px;
-    border: 2px solid rgb(172, 166, 166);
-    background-color: #dab708;
-    /* Light green background */
-    /* Black text */
-    color: black;
-    border-radius: 15px;
-    box-shadow: 4px 3px 2px 2px rgb(47, 47, 47);
-    margin-top: 30px;
-    font-size: large;
-    font-weight: bold;
-    padding: 15px;
-    font-style: 'baloo-bhai';
-    color: rgb(0, 0, 0);
-
-
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-
-#submitButton:hover {
-    cursor: pointer;
-    background: #2fae28;
-    border-radius: 15px;
-    border: 2px solid rgb(247, 247, 247);
-    font-size: larger;
+.school-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.form {
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-}
-.input{
-    margin-right: 20px;
+.school-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
 }
 
-label {
+.form-container {
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.input-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    transition: all 0.3s;
 }
 
-input[type="text"],
-input[type="password"] {
+.input-group input {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    font-size: 1rem;
+    transition: all 0.3s;
+    outline: none;
 }
 
-@media only screen and (max-width:800px) {
-
-    .Home {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .Home::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        right: 0;
-
-        background: url('../public/bgSchool.jpg') center/contain;
-        /* -webkit-filter: blur(15px);
-        -moz-filter: blur(15px);
-        -o-filter: blur(15px);
-        -ms-filter: blur(15px); */
-        filter: blur(3.8px);
-        z-index: -1;
-        /* Place the pseudo-element behind the content */
-    }
-
-
-    .form {
-        width: 300px;
-        padding: 20px;
-        background-color: #f4f4f4;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 70vw;
-        margin: 0 auto;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-
-    .h1 h1 {
-        text-align: center;
-        background: white;
-        color: rgb(0, 0, 0);
-        font-size: x-large
-    }
+.input-group input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-#map {
-    margin-top: 15px;
-    background-color: #ccc;
-    border-radius: 5px;
-    width: 85%;
-    margin: auto;
-    margin-top: 1.2rem;
+.location-display {
+    background-color: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+}
+
+.submit-button:active {
+    transform: translateY(1px);
+}
+
+@media only screen and (max-width: 600px) {
+    .attendance-container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+    
+    .school-title {
+        font-size: 1.5rem;
+    }
 }

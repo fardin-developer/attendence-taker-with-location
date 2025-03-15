@@ -17,15 +17,12 @@ const App = () => {
     return (
         <>
             <Router>
-                <NavBar/>
                 <Routes>
                     <Route path='/' element={<Attendance />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/exist' element={<AttendanceExist />} />
                     <Route path='/success' element={<Success/>}/>
                     <Route path='/failure' element={<Failure/>}/>
-                    <Route path='/salary' element={<Salary />} />
-                    <Route path='/salary-slip' element={<SalarySlip />} />
                 </Routes>
             </Router>
         </>
